@@ -1,0 +1,12 @@
+div(id='page-header')
+  nav(class='navbar navbar-default navbar-fixed-top')
+    div(class='col-md-3 hidden-md-down')
+      img(class='logo', src='/images/logo.svg')
+
+    if countryList
+      div(class='col-md-6 hidden-md-down note')
+        select(id='countries', onchange='updateCountry(this.value)')
+          each countryItem in countryList
+            option(value=countryItem.code, selected=(countryItem.code === country)) #{countryItem.name}
+
+      script(src='/javascripts/country.selector.js')
